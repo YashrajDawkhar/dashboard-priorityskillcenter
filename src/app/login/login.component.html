@@ -1,0 +1,49 @@
+<div class="ContainerI">
+
+	<div class="Contain">
+
+		<p-toast></p-toast>
+
+		<div class="title">
+			<div id="name">
+				IntelliAssist
+			</div>
+			<div id="info">
+				IntelliAssist helps you convert more visitors to customers
+			</div>
+		</div>
+		<div class="login">
+			<form [formGroup]="login" (ngSubmit)="LoginData(login.value)">
+				<div class="email">
+					<input type="text" pInputText style="width:100%;" placeholder="Email address"
+						formControlName="email" autocomplete="off" (keyup)="removeError(email.value)" #email />
+				</div>
+				<div class="pass">
+					<input type="password" pInputText style="width:100%;" placeholder="Password"
+						formControlName="password" autocomplete="off" (keyup)="removeError(pass.value)" #pass />
+				</div>
+				<div class="error" *ngIf="error">
+					{{error}}
+				</div>
+				<div class="btn">
+					<button type="submit" pButton pRipple class="p-button-raised p-button-text" id="btn"><span
+							class="p-button-label log">Login</span> </button>
+				</div>
+				<div class="forgetPass" routerLink="../forgot-password">
+					Forgot password ?
+				</div>
+				<hr>
+			</form>
+			<div style="height: 45px;">
+				<!-- <asl-google-signin-button type="standard" size="medium" width="340" theme="outline" logo_alignment="center" 
+				> </asl-google-signin-button> -->
+			</div>
+			<div id="noAccount">
+				Don't have an account? <span style="cursor: pointer;color: blue;" routerLink="../signup">Click Here</span>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+

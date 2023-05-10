@@ -1,0 +1,107 @@
+.ContainerI {
+    width: 100%;
+    height: 100%;
+    background-color: #f8f8f8;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Contain {
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+  }
+  
+  .login {
+    width: 400px;
+    min-height: 360px;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 30px 30px 10px 30px;
+    color: rgb(99, 99, 99);
+    background-color: #ffffffde;
+    border: 1px solid #dadada;
+  }
+  
+  .title {
+    width: 500px;
+    margin-top: 30px;
+    padding-right: 55px;
+  }
+  
+  #name {
+    font-size: 50px;
+    font-weight: 800;
+    color: #696969;
+    // font-family: "Courier New", Courier, monospace;
+    letter-spacing: 1px;
+  }
+  
+  #info {
+    font-size: 24px;
+    line-height: 32px;
+    color: #696969;
+  }
+  
+  .pass {
+    margin-top: 15px;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 0;
+  }
+  
+  .forgetPass {
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .error {
+    margin-top: 15px;
+    color: red;
+  }
+  
+  #btn {
+    color: rgb(255, 255, 255);
+    background-color: #192b3f;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 45px;
+  }
+  
+  #btnCreate {
+
+    border: 1px solid rgb(223, 224, 229);
+    box-shadow: #0000001a 0px 1px 2px;
+    color: rgb(41, 24, 0);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .newAcc {
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .log {
+    width: 100%;
+    position: absolute;
+  }
+  
+  #noAccount{
+    margin:20px 0 15px;
+  }

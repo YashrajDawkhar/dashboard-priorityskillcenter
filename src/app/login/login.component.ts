@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { LoginGuardService } from '../service/login-guard.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
-  error: string = ''
+  constructor(private messageService: MessageService,private router:Router,private guard:LoginGuardService) {}
 
   login: any = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -20,25 +23,17 @@ export class LoginComponent {
     Object.keys(this.login.controls).forEach((key) => {
       this.login.controls[key].markAsDirty();
     });
+
     if (this.login.valid) {
-      // this.backend.IntelliAssistLogin(data.email, data.password).subscribe({
-      // 	next: (data: any) => {
-      // 		if (data.successOrErrorCode != 0) {
-      // 			this.error = data.message
-      // 		} else {
-      // 			let message = this.backend.UserRedirect(data)
-      // 			this.messageService.add({ severity: message.key, summary: 'Success', detail: message.value });
-      // 		}
-      // 	},
-      // 	error: () => {
-      // 		this.messageService.add({ severity: 'warn', summary: 'Failure', detail: "Authentication Api Failed" });
-      // 	}
-      // })
+      if(data.email=='admin@gmail.com' && data.password=='9090'){
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Login successfull !!' });
+        this.guard.accessLevel(true)
+      }else{
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'You have enter a wrong username or password !!' });
+      }
     }
+
   }
 
-  removeError(email: any) {
-    this.error = ''
-  }
 
 }

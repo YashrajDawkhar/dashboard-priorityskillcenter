@@ -5,34 +5,35 @@
 		<p-toast></p-toast>
 
 		<div class="title">
+
 			<div id="name">
 				PrioritySkillCenter
 			</div>
 			<div id="info">
 				We belive in students growth !!
 			</div>
+			
 		</div>
+		
 		<div class="login">
+
 			<form [formGroup]="login" (ngSubmit)="LoginData(login.value)">
+
 				<div class="email">
-					<input type="text" pInputText style="width:100%;" placeholder="Email address"
-						formControlName="email" autocomplete="off" (keyup)="removeError(email.value)" #email />
+					<input type="text" pInputText style="width:100%;" placeholder="Email address" formControlName="email" autocomplete="off"  />
 				</div>
 				<div class="pass">
-					<input type="password" pInputText style="width:100%;" placeholder="Password"
-						formControlName="password" autocomplete="off" (keyup)="removeError(pass.value)" #pass />
-				</div>
-				<div class="error" *ngIf="error">
-					{{error}}
+					<input type="password" pInputText style="width:100%;" placeholder="Password" formControlName="password" autocomplete="off"  />
 				</div>
 				<div class="btn">
 					<button type="submit" pButton pRipple class="p-button-raised p-button-text" id="btn"><span
 							class="p-button-label log">Login</span> </button>
 				</div>
-				<div class="forgetPass" routerLink="../forgot-password">
+				<div class="forgetPass" >
 					Forgot password ?
 				</div>
-				<hr>
+				<hr style="margin-top:10px;color: rgb(184, 184, 184);">
+
 			</form>
 
 			<div id="noAccount">

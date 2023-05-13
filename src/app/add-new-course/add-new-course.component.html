@@ -1,0 +1,125 @@
+<div class="container">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="right">
+
+        <div class="inner">
+
+            <form [formGroup]="course" (ngSubmit)="course_data()">
+
+
+                <div class="grid">
+
+                    <div class="col-12">
+                        <input type="text" pInputText placeholder="Title" formControlName="title" />
+                    </div>
+
+                    <div class="col-12">
+                        <textarea rows="5" cols="30" pInputTextarea placeholder="Description"
+                            formControlName="desc"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <input type="text" pInputText placeholder="Course Image URL" formControlName="course_img_URL" />
+                    </div>
+
+                    <p-divider class="col-12" align="center" type="dashed">
+                        <b>Student Data</b>
+                    </p-divider>
+
+                    <div class="col-6">
+                        <input type="text" pInputText placeholder="Rating" formControlName="rating" />
+                    </div>
+                    <div class="col-6">
+                        <input type="text" pInputText placeholder="Student Enrol" formControlName="student_enrol" />
+                    </div>
+                    <div class="col-4">
+                        <input type="text" pInputText placeholder="Problem Solved" formControlName="problem_solve" />
+                    </div>
+                    <div class="col-4">
+                        <input type="text" pInputText placeholder="Month" formControlName="months" />
+                    </div>
+                    <div class="col-4">
+                        <input type="text" pInputText placeholder="Hours" formControlName="hours" />
+                    </div>
+
+                    <p-divider class="col-12" align="center" type="dashed">
+                        <b>Syllabus</b>
+                    </p-divider>
+
+                    <div class="col-6 p-0">
+
+                        <div class="col-12 flex" formArrayName="Learn" *ngFor="let L of Learn.controls;let i=index">
+                            <input type="text" pInputText placeholder="Learn" [formControlName]="i" />
+                            <i class="bi bi-x" (click)="removeLearn(i)" pTooltip="Click to remove"></i>
+                        </div>
+
+                        <div class="col-12">
+                            <div id="plus">
+                                <i class="bi bi-plus-circle-dotted" (click)="addMoreLearnData()"
+                                    pTooltip="Click to add more video"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-6 p-0">
+
+                        <div class="col-12 flex" formArrayName="curriculum"
+                            *ngFor="let L of curriculum.controls;let i=index">
+                            <input type="text" pInputText placeholder="Curriculum" [formControlName]="i" />
+                            <i class="bi bi-x" (click)="removeCurriculum(i)" pTooltip="Click to remove"></i>
+                        </div>
+
+                        <div class="col-12">
+                            <div id="plus">
+                                <i class="bi bi-plus-circle-dotted" (click)="addMoreCurriculumData()"
+                                    pTooltip="Click to add more video"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p-divider class="col-12" align="center" type="dashed">
+                        <b>Faculy</b>
+                    </p-divider>
+
+                    <div class="col-12 p-0 flex" formArrayName="faculty"
+                        *ngFor="let facultyGroup of faculty.controls;let i=index">
+
+                        <ng-container [formGroupName]="i">
+
+                            <div class="col-6">
+                                <input type="text" pInputText placeholder="Name" formControlName="name" />
+                            </div>
+                            <div class="col-5">
+                                <input type="text" pInputText placeholder="Image URL" formControlName="image" />
+                            </div>
+
+                            <i class="bi bi-x" (click)="removeFaculty(i)" pTooltip="Click to remove"></i>
+
+                        </ng-container>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div id="plus">
+                            <i class="bi bi-plus-circle-dotted" (click)="addMoreFacultyData()"
+                                pTooltip="Click to add more video"></i>
+                        </div>
+                    </div>
+
+                    <button pButton type="submit" label="Add New Course" class="p-button-outlined col-12"></button>
+
+
+                </div>
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+</div>

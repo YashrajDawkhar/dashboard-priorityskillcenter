@@ -8,10 +8,19 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ModifyCourseComponent } from './modify-course/modify-course.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import {DividerModule} from 'primeng/divider';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AddNewCourseComponent,
+    SidebarComponent,
+    ModifyCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +28,10 @@ import { ButtonModule } from 'primeng/button';
     ReactiveFormsModule,
     ToastModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    BrowserAnimationsModule,
+    InputTextareaModule,
+    DividerModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

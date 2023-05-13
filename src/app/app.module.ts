@@ -14,6 +14,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ModifyCourseComponent } from './modify-course/modify-course.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import {DividerModule} from 'primeng/divider';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import {DividerModule} from 'primeng/divider';
     ButtonModule,
     BrowserAnimationsModule,
     InputTextareaModule,
-    DividerModule
+    DividerModule,
+    HttpClientModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

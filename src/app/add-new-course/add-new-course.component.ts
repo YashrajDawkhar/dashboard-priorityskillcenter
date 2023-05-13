@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { BackendService } from '../backend.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-add-new-course',
@@ -8,7 +10,7 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AddNewCourseComponent {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private backend: BackendService,private messageService: MessageService) { }
 
   course: FormGroup = this.fb.group({
     title: [],
@@ -71,9 +73,35 @@ export class AddNewCourseComponent {
   }
 
 
-  course_data() {
+  course_data(data:any) {
 
-    console.log(this.course.value);
+    console.log(data);
+
+    let body = {
+      "title": data.title,
+      "desc": data.desc,
+      "img": data.course_img_URL,
+      "detail": {
+        "rating": data.rating,
+        "student_enrol": data.student_enrol,
+        "problem": data.problem_solve,
+        "month": data.months,
+        "hour": data.hours,
+        "learn": data.Learn,
+        "curriculum": data.curriculum,
+        "faculty": data.faculty
+      }
+    }
+
+    this.backend.postNewCourse('test',body).subscribe({
+      next:()=>{
+        this.course.reset();
+        this.messageService.add({key: 'bc', severity:'success', summary: 'Success', detail: 'New Course Has Been Added !!'});
+      },error:()=>{
+        this.messageService.add({key: 'bc', severity:'error', summary: 'Error', detail: 'Something Went Wrong !!'});
+      }
+    })
+
 
 
   }

@@ -5,8 +5,10 @@
     <div class="right">
 
         <div class="inner">
+            
+            <p-toast position="bottom-center" key="bc"></p-toast>
 
-            <form [formGroup]="course" (ngSubmit)="course_data()">
+            <form [formGroup]="course" (ngSubmit)="course_data(course.value)">
 
 
                 <div class="grid">

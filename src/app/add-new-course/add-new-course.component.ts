@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BackendService } from '../backend.service';
 import { MessageService } from 'primeng/api';
 
@@ -13,9 +13,9 @@ export class AddNewCourseComponent {
   constructor(private fb: FormBuilder, private backend: BackendService,private messageService: MessageService) { }
 
   course: FormGroup = this.fb.group({
-    title: [],
+    title: ['',Validators.required],
     desc: [],
-    course_img_URL: [],
+    course_img_URL: ['',Validators.required],
     rating: [],
     student_enrol: [],
     problem_solve: [],
@@ -93,6 +93,7 @@ export class AddNewCourseComponent {
       }
     }
 
+   
     this.backend.postNewCourse('test',body).subscribe({
       next:()=>{
         this.course.reset();

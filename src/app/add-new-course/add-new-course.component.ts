@@ -94,7 +94,7 @@ export class AddNewCourseComponent {
     }
 
    
-    this.backend.postNewCourse('test',body).subscribe({
+    this.backend.postNewCourse('IT',body).subscribe({
       next:()=>{
         this.course.reset();
         this.messageService.add({key: 'bc', severity:'success', summary: 'Success', detail: 'New Course Has Been Added !!'});

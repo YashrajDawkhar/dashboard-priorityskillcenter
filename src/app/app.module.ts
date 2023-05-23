@@ -15,6 +15,7 @@ import { ModifyCourseComponent } from './modify-course/modify-course.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import {DividerModule} from 'primeng/divider';
 import { HttpClientModule } from '@angular/common/http';
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     InputTextareaModule,
     DividerModule,
-    HttpClientModule
+    HttpClientModule,
+    DropdownModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

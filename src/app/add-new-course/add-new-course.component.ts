@@ -10,9 +10,14 @@ import { MessageService } from 'primeng/api';
 })
 export class AddNewCourseComponent {
 
+
+  course_list = ['IT','CAD','Trending','Language']
+
+
   constructor(private fb: FormBuilder, private backend: BackendService,private messageService: MessageService) { }
 
   course: FormGroup = this.fb.group({
+    courseName:['',Validators.required],
     title: ['',Validators.required],
     desc: [],
     course_img_URL: ['',Validators.required],
@@ -93,8 +98,10 @@ export class AddNewCourseComponent {
       }
     }
 
+    console.log(data.courseName);
+    
    
-    this.backend.postNewCourse('IT',body).subscribe({
+    this.backend.postNewCourse(data.courseName,body).subscribe({
       next:()=>{
         this.course.reset();
         this.messageService.add({key: 'bc', severity:'success', summary: 'Success', detail: 'New Course Has Been Added !!'});

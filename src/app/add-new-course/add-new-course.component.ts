@@ -11,16 +11,16 @@ import { MessageService } from 'primeng/api';
 export class AddNewCourseComponent {
 
 
-  course_list = ['IT','CAD','Trending','Language']
+  course_list = ['IT', 'CAD', 'Trending', 'Language']
 
 
-  constructor(private fb: FormBuilder, private backend: BackendService,private messageService: MessageService) { }
+  constructor(private fb: FormBuilder, private backend: BackendService, private messageService: MessageService) { }
 
   course: FormGroup = this.fb.group({
-    courseName:['',Validators.required],
-    title: ['',Validators.required],
+    courseName: ['', Validators.required],
+    title: ['', Validators.required],
     desc: [],
-    course_img_URL: ['',Validators.required],
+    course_img_URL: ['', Validators.required],
     rating: [],
     student_enrol: [],
     problem_solve: [],
@@ -78,7 +78,7 @@ export class AddNewCourseComponent {
   }
 
 
-  course_data(data:any) {
+  course_data(data: any) {
 
     console.log(data);
 
@@ -99,17 +99,18 @@ export class AddNewCourseComponent {
     }
 
     console.log(data.courseName);
-    
-   
-    this.backend.postNewCourse(data.courseName,body).subscribe({
-      next:()=>{
-        this.course.reset();
-        this.messageService.add({key: 'bc', severity:'success', summary: 'Success', detail: 'New Course Has Been Added !!'});
-      },error:()=>{
-        this.messageService.add({key: 'bc', severity:'error', summary: 'Error', detail: 'Something Went Wrong !!'});
-      }
-    })
 
+
+    if (data.courseName) {
+      this.backend.postNewCourse(data.courseName, body).subscribe({
+        next: () => {
+          this.course.reset();
+          this.messageService.add({ key: 'bc', severity: 'success', summary: 'Success', detail: 'New Course Has Been Added !!' });
+        }, error: () => {
+          this.messageService.add({ key: 'bc', severity: 'error', summary: 'Error', detail: 'Something Went Wrong !!' });
+        }
+      })
+    }
 
 
   }

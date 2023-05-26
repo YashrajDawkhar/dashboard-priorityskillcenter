@@ -13,9 +13,10 @@ import { AddNewCourseComponent } from './add-new-course/add-new-course.component
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ModifyCourseComponent } from './modify-course/modify-course.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import {DividerModule} from 'primeng/divider';
+import { DividerModule } from 'primeng/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { DropdownModule } from 'primeng/dropdown';
+import { TableModule } from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { DropdownModule } from 'primeng/dropdown';
     InputTextareaModule,
     DividerModule,
     HttpClientModule,
-    DropdownModule
+    DropdownModule,
+    TableModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

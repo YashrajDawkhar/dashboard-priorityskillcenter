@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class LoginGuardService {
 
-  private showRoutingPage = signal(false)
+  private showRoutingPage = signal(true)
 
   constructor(private router: Router) { }
 

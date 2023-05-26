@@ -13,6 +13,9 @@ export class BackendService {
     return this.http.post(`${this.API}/course/${type}`,body)
   }
 
+  getContactDetails(){
+    return this.http.get(`${this.API}/contact`)
+  }
 
 
 

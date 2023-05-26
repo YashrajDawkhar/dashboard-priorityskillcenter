@@ -11,6 +11,7 @@
                 <ng-template pTemplate="header">
                     <tr>
                         <th>No</th>
+                        <th>Date</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Subject</th>
@@ -20,6 +21,7 @@
                 <ng-template pTemplate="body" let-product let-i="rowIndex">
                     <tr>
                         <td>{{i + 1}}</td>
+                        <td>{{product.Date | date}}</td>
                         <td>{{product.Name}}</td>
                         <td>{{product.Email}}</td>
                         <td>{{product.Subject}}</td>
